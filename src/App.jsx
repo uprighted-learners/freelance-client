@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+import Welcome from './components/Welcome'
+import Header from './components/Header'
+import Footer from './components/Footer'
 import './App.css'
 import Auth from './components/Auth'
 
