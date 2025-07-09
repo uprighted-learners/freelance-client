@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-
+import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom'
 import Welcome from './components/Welcome'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -24,11 +24,17 @@ function App() {
 
   return (
     <>
-      <Jobs sessionToken={sessionToken} />
-     <h1>Welcome to your front end</h1>
-     <Header/>
-     <Welcome/>
-     <Footer/>
+    <BrowserRouter>
+      <Header />
+     {/* <Welcome /> */}
+      <Routes>
+        <Route path='/jobs' element={ <Jobs /> } />
+      </Routes>
+      <Footer />
+    
+    
+    </BrowserRouter>
+     
     </>
   )
 }

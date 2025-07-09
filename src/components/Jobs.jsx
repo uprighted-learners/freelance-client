@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
-
+import "./jobs.css"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
+import Box from '@mui/system/Box';
+import { styled } from '@mui/system';
+
 
 export default function Jobs({ sessionToken }) {
 
@@ -28,25 +31,35 @@ export default function Jobs({ sessionToken }) {
         console.log(data)
     }, [])
 
-    const theme = createTheme({
-    components: {
-        MuiStack: {
-        defaultProps: {
-            useFlexGap: true,
-        },
-        },
-    },
-    });
+    const Item = styled('div')(({ theme }) => ({
+  backgroundColor: '#fff',
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  borderRadius: 4,
+  ...theme.applyStyles('dark', {
+    backgroundColor: '#262B32',
+  }),
+}));
+
+    
 
     const showJobs = () => {
-        return data.map(d => <p>Job: {d.name} </p> )
+        return data.map(d => 
+            <div className='card'>
+                Name: {d.name} Job Title: {d.job} Salary: {d.salary}
+                
+            </div>
+        )
     }
   return (
-    <div> 
-        {showJobs()} 
-        <ThemeProvider theme={theme}>
-        <Stack>{showJobs()}</Stack> {/* uses flexbox gap by default */}
-        </ThemeProvider>
+    <div>
+        <div>
+            <h1>JobSight</h1>
+            <h2>Available Jobs</h2>
+        </div>
+        
+        {showJobs()}
+        
     </div>
 
   )
