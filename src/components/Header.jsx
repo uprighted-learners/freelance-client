@@ -1,5 +1,7 @@
 import React from 'react'
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import "./header.css"
+import Jobs from './Jobs';
 
 function Header() {
   return (
@@ -7,7 +9,10 @@ function Header() {
       <nav>
         <h1>Freelance Tracker</h1>
         <ul className="nav-links">
-        <li><a href="http://127.0.0.1:4000/register">Register</a></li>
+        <li><a href="#register">Register</a></li>
+        <li>
+          <NavLink to="/jobs">Jobs</NavLink>
+        </li>
         </ul>
 
       </nav>
