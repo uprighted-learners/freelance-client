@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom'
 import Welcome from './components/Welcome'
 import './App.css'
 import Auth from './components/Auth'
 
+
+import Jobs from './components/Jobs'
 
 function App() {
   
@@ -11,27 +14,25 @@ function App() {
 
 	const [sessionToken, setSessionToken ] = useState(undefined)
 
+  
+
   useEffect(() => {
-    if (localStorage.getItem("token")) {
+    if (localStorage.getItem("token")){
       setSessionToken(localStorage.getItem("token"))
     }
-  },[])
+  })
 
   const updateLocalStorage = newToken => {
     localStorage.setItem("token", newToken)
-    setSessionToken(newToken)
+    sessionToken(newToken)
   }
-
-
-
-	const renderView = () => {
+  const renderView = () => {
 		return !sessionToken
 		? <Auth updateLocalStorage={updateLocalStorage} />
 		: <Rooms sessionToken={sessionToken} />
 	
 	}
-
-	const logout = () => {
+  const logout = () => {
 		if (localStorage.getItem("token")) {
 			localStorage.removeItem("token")
 			setSessionToken(undefined)
@@ -46,13 +47,26 @@ function App() {
 			<button onClick={logout}>Logout</button>
 			{renderView()}
 		</>
+  return (
+    <>
+    <BrowserRouter>
+      <Header />
+     {/* <Welcome /> */}
+      <Routes>
+        <Route path='/jobs' element={ <Jobs /> } />
+      </Routes>
+      <button onClick={logout}>Logout</button>
+			{renderView()}
+      <Footer />
+    
+    
+    </BrowserRouter>
+     
+    </>
+  )
 	
   
-    return (
-    <>
-	<Welcome/>
-    </>
-  );
+    
 }
 
 
