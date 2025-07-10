@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import Welcome from './components/Welcome'
-import Header from './components/Header'
-import Footer from './components/Footer'
 import './App.css'
 import Auth from './components/Auth'
 
 
 function App() {
   
+  
+
+
 	const [sessionToken, setSessionToken ] = useState(undefined)
 
   useEffect(() => {
@@ -37,13 +38,25 @@ function App() {
 		}
 	}
 
-	return (
+    
+
+
+	// return
 		<>
 			<button onClick={logout}>Logout</button>
 			{renderView()}
 		</>
-	)
 	
+  
+    return (
+    <>
+	<Welcome/>
+    </>
+  );
 }
+
+
+
+
 
 export default App

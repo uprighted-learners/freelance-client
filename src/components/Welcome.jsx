@@ -1,26 +1,120 @@
-  import React from 'react'
+
+ import React from 'react'
+ 
+import { AppBar,Toolbar, Box, Typography, List, ListItem,ListItemText,Button,Container,Divider,} from '@mui/material';                          
   
-  
-export default function Welcome() 
-{
+
+
+
+
+function WelcomeBanner() {
   return (
-    <section id="welcome-banner">
-      <h2>Welcome to the Freelance Tracker</h2>
-      <p>Take control of your freelance career by managing your work all in one place.
-         The Freelance Tracker allows you to organize job applications, projects, and invoices at your own pace. 
-      </p>
-      <p> Start maximizing your productivity today! 
-     </p>
+    <>
+      {/* Header */}
+      <AppBar position="static" color="primary">
+        <Toolbar sx={{ justifyContent: 'center' }}>
+          <Typography variant="h6" align="center">
+            Job Sight
+          </Typography>
+        </Toolbar>
+      </AppBar>
+
+
+      {/* Main  body Content */}
+      <Container maxWidth="md" sx={{ my: 4 }}>
+        <Box
+          sx={{
+            padding: 4,
+            background: 'linear-gradient(145deg, #e3f2fd, #ffffff)',
+            borderRadius: 2,
+            textAlign: 'center',
+            boxShadow: 3,
+          }}
+        >
+          <Typography
+            variant="h4"
+            gutterBottom
+            sx={{
+              fontWeight: 'bold',
+              color: '#1976d2',
+              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+            }}
+          >
+            Freelance Tracker
+          </Typography>
+
+          <Typography component="p" sx={{ mb: 2 }}>
+         Take control of your freelance career by managing your work all in one place.
+        The Freelance Tracker allows you to organize job applications, projects, and invoices at your own pace.
+            </Typography>
+
+
+          <Typography variant="h6" sx={{ color: '#1976d2', marginY: 2 }}>
+            🌟 Start maximizing your productivity today!
+          </Typography>
+
+          <Divider sx={{ marginY: 2 }} />
+
+          <Typography variant="h5" gutterBottom>
+            What can you do?
+          </Typography>
+
+          <List>
+            <ListItem><ListItemText primary="✅ Track job applications" /></ListItem>
+            <ListItem><ListItemText primary="📁 Manage freelance projects" /></ListItem>
+            <ListItem><ListItemText primary="💸 Generate and monitor invoices" /></ListItem>
+            <ListItem><ListItemText primary="🧑‍💻 Access a personalized workspace and dashboard upon login" /></ListItem>
+          </List>
+
+          <Typography variant="body2" sx={{ marginTop: 2 }}>
+            Use these simple tools to help you stay organized. To get started, simply register or log in.
+          </Typography>
+
+          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, marginTop: 3 }}>
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{
+                transition: 'transform 0.2s ease-in-out',
+                '&:hover': {
+                  transform: 'scale(1.05)',
+                  backgroundColor: '#1565c0',
+                },
+              }}
+            >
+              Register or Login
+            </Button>
+            <Button variant="outlined" color="primary">
+            </Button>
+          </Box>
+        </Box>
+      </Container>
+
      
-     <h3>What can you do?</h3>
-     <ul>
-      <li>Track job applications </li>
-      <li>Manage freelance projects</li>
-      <li>Generate and monitor invoices</li>
-      <li>Access a personalized workspace and dashboard upon login</li>
-     </ul>
-     <p> Use these simple tools to help you stay organized. To get started, simply register or log in to start accessing these features. 
-</p>
-    </section>
+
+
+
+
+      {/* Footer */}
+      <Box
+        component="footer"
+        sx={{
+          backgroundColor: 'primary.main',
+          color: 'white',
+          textAlign: 'center',
+          py: 2,
+          mt: 4,
+        }}
+      >
+        <Typography variant="body2">
+          &copy; {new Date().getFullYear()} Freelance Tracker. All rights reserved.
+        </Typography>
+      </Box>
+    </>
   );
 }
+
+export default WelcomeBanner;
+
+
+
