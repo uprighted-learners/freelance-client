@@ -4,12 +4,16 @@ import Welcome from './components/Welcome'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import './App.css'
+import Auth from './components/Auth'
+
 
 import Jobs from './components/Jobs'
 
 function App() {
+  
+	const [sessionToken, setSessionToken ] = useState(undefined)
 
-  const [ sessionToken, setSessionToken ] = useState(undefined)
+  
 
   useEffect(() => {
     if (localStorage.getItem("token")){
@@ -21,6 +25,18 @@ function App() {
     localStorage.setItem("token", newToken)
     sessionToken(newToken)
   }
+  const renderView = () => {
+		return !sessionToken
+		? <Auth updateLocalStorage={updateLocalStorage} />
+		: <Rooms sessionToken={sessionToken} />
+	
+	}
+  const logout = () => {
+		if (localStorage.getItem("token")) {
+			localStorage.removeItem("token")
+			setSessionToken(undefined)
+		}
+	}
 
   return (
     <>
@@ -30,6 +46,8 @@ function App() {
       <Routes>
         <Route path='/jobs' element={ <Jobs /> } />
       </Routes>
+      <button onClick={logout}>Logout</button>
+			{renderView()}
       <Footer />
     
     
@@ -37,6 +55,7 @@ function App() {
      
     </>
   )
+	
 }
 
 export default App
