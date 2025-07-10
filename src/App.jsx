@@ -4,15 +4,18 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import './App.css'
 import Auth from './components/Auth'
+import { Routes } from 'react-router-dom'
+
 
 
 function App() {
   
 	const [sessionToken, setSessionToken ] = useState(undefined)
 
-  useEffect(() => {
+
+	useEffect(() => {
     if (localStorage.getItem("token")) {
-      setSessionToken(localStorage.getItem("token"))
+    setSessionToken(localStorage.getItem("token"))
     }
   },[])
 
@@ -26,17 +29,20 @@ function App() {
 	const renderView = () => {
 		return !sessionToken
 		? <Auth updateLocalStorage={updateLocalStorage} />
-		: <Rooms sessionToken={sessionToken} />
+		: <Jobs sessionToken={sessionToken} />
 	
 	}
+
+
 
 	const logout = () => {
 		if (localStorage.getItem("token")) {
 			localStorage.removeItem("token")
 			setSessionToken(undefined)
 		}
+		
 	}
-
+	
 	return (
 		<>
 			<button onClick={logout}>Logout</button>
