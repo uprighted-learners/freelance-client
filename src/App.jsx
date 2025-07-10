@@ -8,6 +8,7 @@ import Auth from './components/Auth'
 
 
 import Jobs from './components/Jobs'
+import Cards from './components/Cards'
 
 function App() {
   
@@ -28,7 +29,7 @@ function App() {
   const renderView = () => {
 		return !sessionToken
 		? <Auth updateLocalStorage={updateLocalStorage} />
-		: <Rooms sessionToken={sessionToken} />
+		: <Welcome sessionToken={sessionToken} />
 	
 	}
   const logout = () => {
@@ -42,11 +43,12 @@ function App() {
     <>
     <BrowserRouter>
       <Header />
-     {/* <Welcome /> */}
+     {/* <Welcome />*/}
       <Routes>
         <Route path='/jobs' element={ <Jobs /> } />
+        <Route path='/cards' element={ <Cards /> } />
       </Routes>
-      <button onClick={logout}>Logout</button>
+      <button onClick={logout()}>Logout</button>
 			{renderView()}
       <Footer />
     

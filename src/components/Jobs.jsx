@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import "./jobs.css"
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/system/Box';
-import { styled } from '@mui/system';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+
 
 
 export default function Jobs({ sessionToken }) {
@@ -31,22 +35,27 @@ export default function Jobs({ sessionToken }) {
         console.log(data)
     }, [])
 
-    const Item = styled('div')(({ theme }) => ({
-  backgroundColor: '#fff',
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  borderRadius: 4,
-  ...theme.applyStyles('dark', {
-    backgroundColor: '#262B32',
-  }),
-}));
-
-    
 
     const showJobs = () => {
         return data.map(d => 
-            <div className='card'>
-                Name: {d.name} Job Title: {d.job} Salary: {d.salary}
+            <div>
+                <Card>
+                    <CardContent>
+                        <Typography gutterBottom variant='h5' component="div" >
+                            {d.name}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }} >
+                            {d.job}
+                            
+                        </Typography>
+                        <Typography>
+                            {d.description}
+                        </Typography>
+                        <Typography>Salary: {d.salary} </Typography>
+
+                    </CardContent>
+                </Card>
+                <Divider />
                 
             </div>
         )
@@ -54,11 +63,13 @@ export default function Jobs({ sessionToken }) {
   return (
     <div>
         <div>
-            <h1>JobSight</h1>
-            <h2>Available Jobs</h2>
+            <h1>Available Jobs</h1>
         </div>
+        <div>
+            {showJobs()}
+        </div>
+       
         
-        {showJobs()}
         
     </div>
 

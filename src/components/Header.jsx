@@ -13,6 +13,9 @@ function Header() {
         <li>
           <NavLink to="/jobs">Jobs</NavLink>
         </li>
+        <li>
+          <NavLink to="/cards">Cards</NavLink>
+        </li>
         </ul>
 
       </nav>
