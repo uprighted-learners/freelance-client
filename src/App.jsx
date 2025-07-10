@@ -5,10 +5,8 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import './App.css'
 import Auth from './components/Auth'
-
-
-
 import Jobs from './components/Jobs'
+
 
 function App() {
   
@@ -21,20 +19,12 @@ function App() {
     if (localStorage.getItem("token")){
       setSessionToken(localStorage.getItem("token"))
     }
-})
+},[])
 
   const updateLocalStorage = newToken => {
     localStorage.setItem("token", newToken)
     sessionToken(newToken)
   }
-  const renderView = () => {
-		return !sessionToken
-		? <Auth updateLocalStorage={updateLocalStorage} />
-		: <Jobs sessionToken={sessionToken} />
-	
-	}
-
-
 
   const logout = () => {
 		if (localStorage.getItem("token")) {
@@ -48,15 +38,15 @@ function App() {
     <>
     <BrowserRouter>
       <Header />
-     {/* <Welcome /> */}
+     
       <Routes>
-        <Route path='/jobs' element={ <Jobs /> } />
+        <Route path='/Welcome' element={<Welcome />} />
+        <Route path='/Jobs' element={ <Jobs /> } />
+		<Route path='/Auth' element={ <Auth updateLocalStorage={updateLocalStorage}/> } />
       </Routes>
       <button onClick={logout}>Logout</button>
-			{renderView()}
+			
       <Footer />
-    
-    
     </BrowserRouter>
      
     </>

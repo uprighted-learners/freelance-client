@@ -9,7 +9,7 @@ function Header() {
       <nav>
         <h1>Freelance Tracker</h1>
         <ul className="nav-links">
-        <li><a href="#register">Register</a></li>
+        <li><a href="/Auth">Register</a></li>
         <li>
           <NavLink to="/jobs">Jobs</NavLink>
         </li>

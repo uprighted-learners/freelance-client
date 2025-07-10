@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "./jobs.css"
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/system/Box';
 import { styled } from '@mui/system';
@@ -29,7 +29,7 @@ export default function Jobs({ sessionToken }) {
         fetchData()
         console.log(data)
         console.log(data)
-    }, [])
+    },)
 
     const Item = styled('div')(({ theme }) => ({
   backgroundColor: '#fff',
