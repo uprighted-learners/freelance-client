@@ -50,14 +50,13 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <Header />
-     {/* <Welcome /> */}
+      <Welcome />
       <Routes>
         <Route path='/jobs' element={ <Jobs /> } />
       </Routes>
       <button onClick={logout}>Logout</button>
 			{renderView()}
-      <Footer />
+
     
     
     </BrowserRouter>
