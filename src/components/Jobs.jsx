@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "./jobs.css"
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider, } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/system/Box';
 import { styled } from '@mui/system';
@@ -63,4 +63,4 @@ export default function Jobs({ sessionToken }) {
     </div>
 
   )
-}
+};
