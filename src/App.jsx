@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom'
 import Welcome from './components/Welcome'
-import Header from './components/Header'
-import Footer from './components/Footer'
 import './App.css'
 import Auth from './components/Auth'
 
@@ -12,6 +10,9 @@ import Cards from './components/Cards'
 
 function App() {
   
+  
+
+
 	const [sessionToken, setSessionToken ] = useState(undefined)
 
   
@@ -39,6 +40,14 @@ function App() {
 		}
 	}
 
+    
+
+
+	// return
+		<>
+			<button onClick={logout}>Logout</button>
+			{renderView()}
+		</>
   return (
     <>
     <BrowserRouter>
@@ -58,6 +67,12 @@ function App() {
     </>
   )
 	
+  
+    
 }
+
+
+
+
 
 export default App

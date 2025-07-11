@@ -74,4 +74,4 @@ export default function Jobs({ sessionToken }) {
     </div>
 
   )
-}
+};
