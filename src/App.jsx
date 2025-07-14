@@ -3,10 +3,9 @@ import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom'
 import Welcome from './components/Welcome'
 import './App.css'
 import Auth from './components/Auth'
-
-
 import Jobs from './components/Jobs'
 import Cards from './components/Cards'
+
 
 function App() {
   
@@ -17,51 +16,43 @@ function App() {
 
   
 
+
   useEffect(() => {
     if (localStorage.getItem("token")){
       setSessionToken(localStorage.getItem("token"))
     }
-  })
+},[])
 
   const updateLocalStorage = newToken => {
     localStorage.setItem("token", newToken)
     sessionToken(newToken)
   }
-  const renderView = () => {
-		return !sessionToken
-		? <Auth updateLocalStorage={updateLocalStorage} />
-		: <Welcome sessionToken={sessionToken} />
-	
-	}
   const logout = () => {
 		if (localStorage.getItem("token")) {
 			localStorage.removeItem("token")
 			setSessionToken(undefined)
 		}
+		
 	}
+	
 
     
 
 
-	// return
-		<>
-			<button onClick={logout}>Logout</button>
-			{renderView()}
-		</>
+	
   return (
     <>
     <BrowserRouter>
-
-      <Welcome />
+      <Header />
+     
       <Routes>
-        <Route path='/jobs' element={ <Jobs /> } />
-        <Route path='/cards' element={ <Cards /> } />
+        <Route path='/Welcome' element={<Welcome />} />
+        <Route path='/Jobs' element={ <Jobs /> } />
+		<Route path='/Auth' element={ <Auth updateLocalStorage={updateLocalStorage}/> } />
       </Routes>
-      <button onClick={logout()}>Logout</button>
-			{renderView()}
-
-    
-    
+      <button onClick={logout}>Logout</button>
+			
+      <Footer />
     </BrowserRouter>
      
     </>

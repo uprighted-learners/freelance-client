@@ -33,7 +33,7 @@ export default function Jobs({ sessionToken }) {
         fetchData()
         console.log(data)
         console.log(data)
-    }, [])
+    },)
 
 
     const showJobs = () => {
