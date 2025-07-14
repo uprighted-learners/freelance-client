@@ -51,15 +51,15 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <Header />
-     {/* <Welcome />*/}
+
+      <Welcome />
       <Routes>
         <Route path='/jobs' element={ <Jobs /> } />
         <Route path='/cards' element={ <Cards /> } />
       </Routes>
       <button onClick={logout()}>Logout</button>
 			{renderView()}
-      <Footer />
+
     
     
     </BrowserRouter>
