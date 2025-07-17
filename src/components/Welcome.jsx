@@ -1,6 +1,5 @@
 
  import React from 'react'
- 
 import { AppBar,Toolbar, Box, Typography, List, ListItem,ListItemText,Button,Container,Divider,} from '@mui/material';                          
   
 
@@ -19,6 +18,18 @@ function WelcomeBanner() {
         </Toolbar>
       </AppBar>
 
+ {/* Logo */}
+<Box sx={{ textAlign: 'center', mb: 3 }}>
+  <img
+    src="/assets/Job Site.png"
+    alt="Freelance Tracker Logo"
+    style={{
+      width: 100,
+      height: 100,
+      objectFit: 'contain',
+    }}
+  />
+</Box>
 
       {/* Main  body Content */}
       <Container maxWidth="md" sx={{ my: 4 }}>
@@ -44,10 +55,9 @@ function WelcomeBanner() {
           </Typography>
 
           <Typography component="p" sx={{ mb: 2 }}>
-         Take control of your freelance career by managing your work all in one place.
+        Take control of your freelance career by managing your work all in one place.
         The Freelance Tracker allows you to organize job applications, projects, and invoices at your own pace.
             </Typography>
-
 
           <Typography variant="h6" sx={{ color: '#1976d2', marginY: 2 }}>
             🌟 Start maximizing your productivity today!
@@ -70,28 +80,23 @@ function WelcomeBanner() {
             Use these simple tools to help you stay organized. To get started, simply register or log in.
           </Typography>
 
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, marginTop: 3 }}>
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{
-                transition: 'transform 0.2s ease-in-out',
-                '&:hover': {
-                  transform: 'scale(1.05)',
-                  backgroundColor: '#1565c0',
-                },
-              }}
-            >
-              Register or Login
-            </Button>
-            <Button variant="outlined" color="primary">
-            </Button>
-          </Box>
-        </Box>
-      </Container>
-
-     
-
+ <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
+      <Button
+        variant="contained"
+        color="primary"
+        sx={{
+          transition: 'transform 0.2s ease-in-out',
+          '&:hover': {
+            transform: 'scale(1.05)',
+            backgroundColor: '#1565c0',
+          },
+        }}
+      >
+        Register or Login
+      </Button>
+    </Box>
+   </Box> 
+ </Container> 
 
 
 

@@ -4,6 +4,10 @@ import Welcome from './components/Welcome'
 import './App.css'
 import Auth from './components/Auth'
 import Jobs from './components/Jobs'
+import Dashboard from './components/Dashboard'
+
+
+
 
 
 function App() {
@@ -43,16 +47,16 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <Header />
-     
+      
       <Routes>
         <Route path='/Welcome' element={<Welcome />} />
         <Route path='/Jobs' element={ <Jobs /> } />
 		<Route path='/Auth' element={ <Auth updateLocalStorage={updateLocalStorage}/> } />
+    <Route path="/Dashboard" element={<Dashboard user={Auth} jobs={Jobs} />} />
+
       </Routes>
       <button onClick={logout}>Logout</button>
 			
-      <Footer />
     </BrowserRouter>
      
     </>
