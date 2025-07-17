@@ -54,7 +54,12 @@ export default function Cards({ sessionToken }) {
 
   return (
     <div>
-        { showCards() }
+        <div>
+            <h1>Summary Cards</h1>
+        </div>
+        <div>
+            {showCards()}
+        </div>
     </div>
   )
 }

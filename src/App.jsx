@@ -5,6 +5,7 @@ import './App.css'
 import Auth from './components/Auth'
 import Jobs from './components/Jobs'
 import Cards from './components/Cards'
+import AddJob from './components/AddJob'
 
 
 function App() {
@@ -43,16 +44,16 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <Header />
      
       <Routes>
         <Route path='/Welcome' element={<Welcome />} />
         <Route path='/Jobs' element={ <Jobs /> } />
+        <Route path='/cards' element={ <Cards /> } />
+        <Route path='/jobs/addjob' element={ <AddJob /> } />
 		<Route path='/Auth' element={ <Auth updateLocalStorage={updateLocalStorage}/> } />
       </Routes>
       <button onClick={logout}>Logout</button>
-			
-      <Footer />
+		
     </BrowserRouter>
      
     </>
