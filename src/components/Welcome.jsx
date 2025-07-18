@@ -13,7 +13,7 @@ function WelcomeBanner() {
       <AppBar position="static" color="primary">
         <Toolbar sx={{ justifyContent: 'center' }}>
           <Typography variant="h6" align="center">
-            Job Sight
+            Welcome to Job Sight
           </Typography>
         </Toolbar>
       </AppBar>

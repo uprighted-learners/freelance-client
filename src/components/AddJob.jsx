@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react'
+import React, {  useState } from 'react'
 
 export default function AddJob({ sessionToken }) {
     const [ job, setJob ] = useState("")
