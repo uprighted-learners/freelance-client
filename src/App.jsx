@@ -1,74 +1,33 @@
-import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom'
-import Welcome from './components/Welcome'
-import './App.css'
-import Auth from './components/Auth'
-import Jobs from './components/Jobs'
-import Cards from './components/Cards'
-import AddJob from './components/AddJob'
-import Dashboard from './components/Dashboard'
-
-
+import { useState, useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import './App.css';
+import AppRoutes from './AppRoutes';
 
 function App() {
-  
-  
-
-
-	const [sessionToken, setSessionToken ] = useState(undefined)
-
-  
-
+  const [sessionToken, setSessionToken] = useState(undefined);
 
   useEffect(() => {
-    if (localStorage.getItem("token")){
-      setSessionToken(localStorage.getItem("token"))
+    const token = localStorage.getItem('token');
+    if (token) {
+      setSessionToken(token);
     }
-},[])
+  }, []);
 
-  const updateLocalStorage = newToken => {
-    localStorage.setItem("token", newToken)
-    sessionToken(newToken)
-  }
+  const updateLocalStorage = (newToken) => {
+    localStorage.setItem('token', newToken);
+    setSessionToken(newToken);
+  };
+
   const logout = () => {
-		if (localStorage.getItem("token")) {
-			localStorage.removeItem("token")
-			setSessionToken(undefined)
-		}
-		
-	}
-	
+    localStorage.removeItem('token');
+    setSessionToken(undefined);
+  };
 
-    
-
-
-	
   return (
-    <>
     <BrowserRouter>
-     
-      <Routes>
-        <Route path='/Welcome' element={<Welcome />} />
-        <Route path='/Jobs' element={ <Jobs /> } />
-        <Route path='/cards' element={ <Cards /> } />
-        <Route path='/jobs/addjob' element={ <AddJob /> } />
-		<Route path='/Auth' element={ <Auth updateLocalStorage={updateLocalStorage}/> } />
-    <Route path="/Dashboard" element={<Dashboard user={Auth} jobs={Jobs} />} />
-
-      </Routes>
-      <button onClick={logout}>Logout</button>
-		
+      <AppRoutes sessionToken={sessionToken} updateLocalStorage={updateLocalStorage} logout={logout} />
     </BrowserRouter>
-     
-    </>
-  )
-	
-  
-    
+  );
 }
 
-
-
-
-
-export default App
+export default App;

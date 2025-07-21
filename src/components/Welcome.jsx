@@ -2,60 +2,62 @@ import React from 'react';
 import { AppBar,Toolbar, Box, Typography, List, ListItem, ListItemText, Button, Container, Divider,} from '@mui/material';
 import Job_Site from '../assets/job_site.png';
 import Tracker_1 from '../assets/tracker_1.png';
-
+import { useNavigate } from 'react-router-dom';
+  
 
 
 function WelcomeBanner() {
-  return (
+
+  const navigate = useNavigate()
+  const handleClick = () => {
+  navigate('/Auth')
+  };
+
+ return (
     <>
       {/* Header */}
-     
-  <AppBar position="static" color="primary">
-  <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-    
-    {/* Left Logo */}
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      <img
-        src={Tracker_1}
-        alt="Left Logo"
-        style={{ width: 60, height: 60, objectFit: 'contain' }}
-      />
-    </Box>
+      <AppBar position="static" color="primary">
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+         
+          {/* Left Logo */}
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <img
+              src={Tracker_1}
+              alt="Left Logo"
+              style={{ width: 60, height: 60, objectFit: 'contain' }}
+            />
+          </Box>
 
-    {/* Message in Center */}
-    <Typography variant="h6" sx={{ textAlign: 'center', flexGrow: 1 }}>
-      Job Sight
-    </Typography>
+          {/* Center Title */}
+          <Typography variant="h6" sx={{ flexGrow: 1, textAlign: 'center' }}>
+            Job Sight
+          </Typography>
 
-    {/* Right Logo */}
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      <img
-        src={Tracker_1}
-        alt="Right Logo"
-        style={{ width: 60, height: 60, objectFit: 'contain' }}
-      />
-    </Box>
+          {/* Right Logo */}
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+           <img
+              src={Tracker_1}
+              alt="Right Logo"
+              style={{ width: 60, height: 60, objectFit: 'contain' }}
+            />
+       </Box>
+      </Toolbar>
+      </AppBar>
 
-</Toolbar>
-</AppBar>
+      {/*  Logo */}
+      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
+        <img
+          src={Job_Site}
+          alt="Freelance Tracker Logo"
+          style={{
+          width: 200,
+           height: 200,
+           objectFit: 'contain',
+          }}
+        />
+      </Box>
 
-
-<Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
-  <img
-    src={Job_Site}
-    alt="Freelance Tracker Logo"
-    style={{
-      width: 200,
-      height: 200,
-      objectFit: 'contain',
-    }}
-  />
-</Box>
-
-
-
-
-      {/* Main Body Content */}
+      {/* Main  Content */}
       <Container maxWidth="md" sx={{ my: 4 }}>
         <Box
           sx={{
@@ -92,20 +94,19 @@ function WelcomeBanner() {
           <Typography variant="h5" gutterBottom>
             What can you do?
           </Typography>
-
           <List>
             <ListItem><ListItemText primary="✅ Track job applications" /></ListItem>
             <ListItem><ListItemText primary="📁 Manage freelance projects" /></ListItem>
             <ListItem><ListItemText primary="💸 Generate and monitor invoices" /></ListItem>
             <ListItem><ListItemText primary="🧑‍💻 Access a personalized workspace and dashboard upon login" /></ListItem>
           </List>
-
           <Typography variant="body2" sx={{ mt: 2 }}>
             Use these simple tools to help you stay organized. To get started, simply register or log in.
           </Typography>
 
           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
             <Button
+              onClick={handleClick}
               variant="contained"
               color="primary"
               sx={{
@@ -117,8 +118,8 @@ function WelcomeBanner() {
               }}
             >
               Register or Login
-            </Button>
-          </Box>
+        </Button>
+        </Box>
         </Box>
       </Container>
 
@@ -136,11 +137,13 @@ function WelcomeBanner() {
           Follow us with ❤️: 🐦 Twitter | 📸 Instagram
         </Typography>
         <Typography variant="body2">
-          &copy; {new Date().getFullYear()} Freelance Tracker. All rights reserved.
+        &copy; {new Date().getFullYear()} Freelance Tracker. All rights reserved.
         </Typography>
       </Box>
     </>
   );
 }
+
+
 
 export default WelcomeBanner;

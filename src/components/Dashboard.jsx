@@ -67,7 +67,7 @@ function Dashboard({ user }) {
   const handleLogout = () => {
     console.log("Logging out...");
     // Add session token  clearing logic here if needed?
-   navigate("/login");
+   navigate("/Auth");
   };
 
   return (
