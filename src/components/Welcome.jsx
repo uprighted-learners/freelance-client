@@ -1,12 +1,20 @@
 
  import React from 'react'
-import { AppBar,Toolbar, Box, Typography, List, ListItem,ListItemText,Button,Container,Divider,} from '@mui/material';                          
+import { AppBar,Toolbar, Box, Typography, List, ListItem,ListItemText,Button,Container,Divider,} from '@mui/material';
+import { useNavigate } from 'react-router-dom';
   
 
 
 
 
 function WelcomeBanner() {
+
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate('/Auth')
+  }
+
   return (
     <>
       {/* Header */}
@@ -81,7 +89,8 @@ function WelcomeBanner() {
           </Typography>
 
  <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
-      <Button
+      <Button onClick={ handleClick }
+        
         variant="contained"
         color="primary"
         sx={{
