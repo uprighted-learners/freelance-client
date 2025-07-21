@@ -49,7 +49,7 @@ function App() {
         <Route path='/Welcome' element={<Welcome />} />
         <Route path='/Jobs' element={ <Jobs /> } />
         <Route path='/cards' element={ <Cards /> } />
-        <Route path='/jobs/addjob' element={ <AddJob /> } />
+        <Route path='/jobs/forms' element={ <AddJob /> } />
 		<Route path='/Auth' element={ <Auth updateLocalStorage={updateLocalStorage}/> } />
       </Routes>
       <button onClick={logout}>Logout</button>
