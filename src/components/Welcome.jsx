@@ -1,8 +1,7 @@
-
- import React from 'react'
-import { AppBar,Toolbar, Box, Typography, List, ListItem,ListItemText,Button,Container,Divider,} from '@mui/material';                          
-  
-
+import React from 'react';
+import { AppBar,Toolbar, Box, Typography, List, ListItem, ListItemText, Button, Container, Divider,} from '@mui/material';
+import Job_Site from '../assets/job_site.png';
+import Tracker_1 from '../assets/tracker_1.png';
 
 
 
@@ -10,28 +9,53 @@ function WelcomeBanner() {
   return (
     <>
       {/* Header */}
-      <AppBar position="static" color="primary">
-        <Toolbar sx={{ justifyContent: 'center' }}>
-          <Typography variant="h6" align="center">
-            Welcome to Job Sight
-          </Typography>
-        </Toolbar>
-      </AppBar>
+     
+  <AppBar position="static" color="primary">
+  <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    
+    {/* Left Logo */}
+    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <img
+        src={Tracker_1}
+        alt="Left Logo"
+        style={{ width: 60, height: 60, objectFit: 'contain' }}
+      />
+    </Box>
 
- {/* Logo */}
-<Box sx={{ textAlign: 'center', mb: 3 }}>
+    {/* Message in Center */}
+    <Typography variant="h6" sx={{ textAlign: 'center', flexGrow: 1 }}>
+      Job Sight
+    </Typography>
+
+    {/* Right Logo */}
+    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <img
+        src={Tracker_1}
+        alt="Right Logo"
+        style={{ width: 60, height: 60, objectFit: 'contain' }}
+      />
+    </Box>
+
+</Toolbar>
+</AppBar>
+
+
+<Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
   <img
-    src="/assets/Job Site.png"
+    src={Job_Site}
     alt="Freelance Tracker Logo"
     style={{
-      width: 100,
-      height: 100,
+      width: 200,
+      height: 200,
       objectFit: 'contain',
     }}
   />
 </Box>
 
-      {/* Main  body Content */}
+
+
+
+      {/* Main Body Content */}
       <Container maxWidth="md" sx={{ my: 4 }}>
         <Box
           sx={{
@@ -55,15 +79,15 @@ function WelcomeBanner() {
           </Typography>
 
           <Typography component="p" sx={{ mb: 2 }}>
-        Take control of your freelance career by managing your work all in one place.
-        The Freelance Tracker allows you to organize job applications, projects, and invoices at your own pace.
-            </Typography>
+            Take control of your freelance career by managing your work all in one place.
+            The Freelance Tracker allows you to organize job applications, projects, and invoices at your own pace.
+          </Typography>
 
-          <Typography variant="h6" sx={{ color: '#1976d2', marginY: 2 }}>
+          <Typography variant="h6" sx={{ color: '#1976d2', my: 2 }}>
             🌟 Start maximizing your productivity today!
           </Typography>
 
-          <Divider sx={{ marginY: 2 }} />
+          <Divider sx={{ my: 2 }} />
 
           <Typography variant="h5" gutterBottom>
             What can you do?
@@ -76,29 +100,27 @@ function WelcomeBanner() {
             <ListItem><ListItemText primary="🧑‍💻 Access a personalized workspace and dashboard upon login" /></ListItem>
           </List>
 
-          <Typography variant="body2" sx={{ marginTop: 2 }}>
+          <Typography variant="body2" sx={{ mt: 2 }}>
             Use these simple tools to help you stay organized. To get started, simply register or log in.
           </Typography>
 
- <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
-      <Button
-        variant="contained"
-        color="primary"
-        sx={{
-          transition: 'transform 0.2s ease-in-out',
-          '&:hover': {
-            transform: 'scale(1.05)',
-            backgroundColor: '#1565c0',
-          },
-        }}
-      >
-        Register or Login
-      </Button>
-    </Box>
-   </Box> 
- </Container> 
-
-
+          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{
+                transition: 'transform 0.2s ease-in-out',
+                '&:hover': {
+                  transform: 'scale(1.05)',
+                  backgroundColor: '#1565c0',
+                },
+              }}
+            >
+              Register or Login
+            </Button>
+          </Box>
+        </Box>
+      </Container>
 
       {/* Footer */}
       <Box
@@ -108,9 +130,11 @@ function WelcomeBanner() {
           color: 'white',
           textAlign: 'center',
           py: 2,
-          mt: 4,
         }}
       >
+        <Typography variant="body2">
+          Follow us with ❤️: 🐦 Twitter | 📸 Instagram
+        </Typography>
         <Typography variant="body2">
           &copy; {new Date().getFullYear()} Freelance Tracker. All rights reserved.
         </Typography>
@@ -120,6 +144,3 @@ function WelcomeBanner() {
 }
 
 export default WelcomeBanner;
-
-
-
