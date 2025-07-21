@@ -22,8 +22,12 @@ function AppRoutes({ updateLocalStorage, logout }) {
         <Route path='/invoices' element ={<Invoice />} />
     </Routes>
 
-      {/* Hide Logout button on Welcome page */}
+        
         {location.pathname !== '/' && (
+        <button onClick={logout}>Logout</button>
+        )}
+
+        {location.pathname !== '/Auth' && (
         <button onClick={logout}>Logout</button>
         )}
     </>
