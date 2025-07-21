@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import "./auth.css"
 
+
+
+
+
 export default function Auth({ updateLocalStorage}) {
+
+
 
     const [login, setLogin] = useState(true)
     const [fullName, setFullName] = useState("")
@@ -42,6 +48,7 @@ export default function Auth({ updateLocalStorage}) {
         .then(data => {
             console.log(data)
             updateLocalStorage(data.token)
+           
         })
         .catch(err => console.log(err))
     }

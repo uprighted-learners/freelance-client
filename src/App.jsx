@@ -6,6 +6,8 @@ import Auth from './components/Auth'
 import Jobs from './components/Jobs'
 import Cards from './components/Cards'
 import AddJob from './components/AddJob'
+import Dashboard from './components/Dashboard'
+
 
 
 function App() {
@@ -51,6 +53,8 @@ function App() {
         <Route path='/cards' element={ <Cards /> } />
         <Route path='/jobs/forms' element={ <AddJob /> } />
 		<Route path='/Auth' element={ <Auth updateLocalStorage={updateLocalStorage}/> } />
+    <Route path="/Dashboard" element={<Dashboard user={Auth} jobs={Jobs} />} />
+
       </Routes>
       <button onClick={logout}>Logout</button>
 		
