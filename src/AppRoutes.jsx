@@ -26,10 +26,6 @@ function AppRoutes({ updateLocalStorage, logout }) {
         {location.pathname !== '/' && (
         <button onClick={logout}>Logout</button>
         )}
-
-        {location.pathname !== '/Auth' && (
-        <button onClick={logout}>Logout</button>
-        )}
     </>
     );
 }
