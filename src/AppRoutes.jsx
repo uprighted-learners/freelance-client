@@ -3,7 +3,7 @@ import Welcome from './components/Welcome';
 import Auth from './components/Auth';
 import Jobs from './components/Jobs';
 import Cards from './components/Cards';
-import AddJob from './components/addjob';
+import AddJob from './components/Jobs/addjob';
 import Dashboard from './components/Dashboard';
 import Invoice from './components/Invoice';
 
