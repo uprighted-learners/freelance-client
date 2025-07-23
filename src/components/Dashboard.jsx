@@ -99,7 +99,7 @@ function Dashboard({ user }) {
           {renderSquareCard("Your Jobs", "jobs")}
           {renderSquareCard("Your Invoices", "invoices")}
           {renderSquareCard("Your Cards", "cards")}
-          {renderSquareCard("Add Job", "addjob")}
+          {renderSquareCard("Add Job", "Jobs/addjob")}
         </Grid>
         
 

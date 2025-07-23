@@ -28,7 +28,7 @@ export default function Cards({ sessionToken }) {
     useEffect(() => {
         fetchData()
         console.log(data)
-    }, [])
+    },)
 
     const showCards = () => {
         return data.map(d => 
